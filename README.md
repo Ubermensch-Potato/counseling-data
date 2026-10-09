@@ -1,7 +1,7 @@
 # counseling-data
 
 Preprocessing scripts that **translate and clean Korean psychological-counseling dialogue datasets into English**, then build **train/valid CSVs** for model training.
-Translation uses a local LLM via Ollama (`qwen3:14b`).
+Translation uses a local LLM served by Ollama.
 
 > Data files (`.txt`, `.json`, `.csv`) are not included in this repository — scripts only.
 
@@ -52,7 +52,7 @@ Korean source ──translate_to_english.py──▶ English translation ──(
 
 ```bash
 pip install ollama tqdm pandas
-ollama pull qwen3:14b
+ollama pull <model>                  # set OLLAMA_MODEL in each script to match
 OLLAMA_NUM_PARALLEL=4 ollama serve   # for parallel translation
 
 python counseling_dataset/korean_counseling_dataset/translate_to_english.py
